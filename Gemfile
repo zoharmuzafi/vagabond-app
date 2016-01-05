@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'ffaker'
   gem 'factory_girl_rails', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do

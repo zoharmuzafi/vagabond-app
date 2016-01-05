@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :set_user, except: [:new, :create]
+
   def new
     if current_user
       redirect_to user_path(current_user)
@@ -13,6 +16,7 @@ class UsersController < ApplicationController
     else
       @user = User.new(user_params)
       if @user.save
+        UserMailer.welcome(@user).deliver_now
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
@@ -23,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -33,7 +38,7 @@ class UsersController < ApplicationController
       if @user.update_attributes(user_params)
         redirect_to user_path(@user)
       else
-        flash[:error] = @user.errs.full_messages.join(', ')
+        flash[:error] = @user.errors.full_messages.join(', ')
         redirect_to edit_user_path(@user)
       end
     else

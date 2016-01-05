@@ -1,4 +1,3 @@
-<% if params[:controller] == 'site' || params[:controller] == 'users'  %>
   <nav id='nav' class='navbar navbar-default navbar-fixed-top'>
     <div class='container-fluid'>
       <div class='navbar-header'>
@@ -31,7 +30,7 @@
       </div>
     </div>
   </nav>
-<% elsif params[:controller] == 'cities' || params[:controller] == 'posts' %>
+<% if params[:controller] == 'cities' || params[:controller] == 'posts' %>
   <nav id='nav' class='navbar navbar-default navbar-fixed-top'>
     <div class='container-fluid'>
       <div class='navbar-header'>
@@ -52,7 +51,7 @@
         <% if params[:controller] == 'cities' && params[:action] == 'show' %>
         <ul class="nav navbar-nav pull-right">
           <li>
-            <%= link_to 'New Post', new_post_path %>
+            <%= link_to 'New Post', new_city_post_path(@city, @post) %>
           </li>
         </ul>
         <% end %>
