@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def create
     #nested resource to build the post in the city show page
     @post = @city.posts.new(post_params)
-    @post.user.id == current_user.id
+    @post.user_id = current_user.id
     if @post.save
       redirect_to city_post_path(@city, @post)
       flash[:notice] = 'Post successfully created'
