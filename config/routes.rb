@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index]
+
+  ##nesting the resource here to create the post and comments directly in the city show page
   
   resources :cities, only: [:show] do
     resources :posts, except: [:index] do

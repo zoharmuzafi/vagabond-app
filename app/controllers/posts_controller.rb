@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  # before_action :set_post, except: [:new, :create]
+
+  before_action :set_post, only: [:show]
   before_action :set_city, except: [:new]
   before_action :authorize, except: [:show]
 
@@ -17,10 +18,10 @@ class PostsController < ApplicationController
     @post = @city.posts.new(post_params)
     @post.user.id == current_user.id
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to city_post_path(@post)
       flash[:notice] = 'Post successfully created'
     else
-      redirect_to new_post_path
+      redirect_to new_city_post_path
       flash[:error] = @post.errors.full_messages.join(', ')
     end
   end
@@ -29,18 +30,20 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = @city.posts.find(params[:id])
     unless current_user.id == @post.user.id
       redirect_to user_path(current_user)
     end
   end
 
   def update
+
     if current_user == @post.user
       if post.update_attributes(post_params)
-        redirect_to post_path(@post)
+        redirect_to city_post_path(@post)
         flash[:notice] = 'Post successfully updated'
       else
-        redirect_to edit_post_path
+        redirect_to edit_city_post_path(@post)
         flash[:error] = @post.errors.full_messages.join(', ')
       end
     else
@@ -49,6 +52,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+
+    #find the post assosicated to the city id
+    @post = @city.posts.find(params[:id])
     if current_user == @post.user
       @post.destroy
       flash[:notice] = 'Post has been deleted'
@@ -58,9 +64,11 @@ class PostsController < ApplicationController
 
 private
   
-  # def set_post
-  #   @post = Post.find(params[:id])
-  # end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def set_city
     @city = City.find(params[:id])
   end
