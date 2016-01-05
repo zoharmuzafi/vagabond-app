@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :set_user, except: [:new, :create]
+
   def new
     if current_user
       redirect_to user_path(current_user)
