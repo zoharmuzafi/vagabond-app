@@ -1,11 +1,18 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.avatar {
+  margin: 0 auto;
+}
+
 body,html {
   height: 100%;
 }
 
-
+body {
+  margin-top: 50px
+}
 
 .wide {
   width:100%;
@@ -18,7 +25,6 @@ body,html {
 
 .wide img {
   width:100%;
-  
 }
 
 .logo {
