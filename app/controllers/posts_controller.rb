@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_post, except: [:new, :create]
+  # before_action :set_post, except: [:new, :create]
+  before_action :set_city, except: [:new]
   before_action :authorize, except: [:show]
 
   def new
@@ -12,7 +13,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    #nested resource to build the post in the city show page
+    @post = @city.posts.new(post_params)
     @post.user.id == current_user.id
     if @post.save
       redirect_to post_path(@post)
@@ -56,10 +58,12 @@ class PostsController < ApplicationController
 
 private
   
-  def set_post
-    @post = Post.find(params[:id])
+  # def set_post
+  #   @post = Post.find(params[:id])
+  # end
+  def set_city
+    @city = City.find(params[:id])
   end
-
   def post_params
     params.require(:post).permit(:title, :body, :city_id, :user_id)
   end

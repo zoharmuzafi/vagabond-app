@@ -2,11 +2,16 @@ Rails.application.routes.draw do
 
   root to: "site#index"
 
-  resources :comments, only: [:create, :update, :destroy]
-  resources :posts, except: [:index]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index]
-  resources :cities, only: [:show]
+  
+  resources :cities, only: [:show] do
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create, :update, :destroy]
+    end
+  end
+
+
 
   get '/signup', to: "users#new"
   post '/users', to: "users#create"
