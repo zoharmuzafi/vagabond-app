@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   get '/logout', to: "sessions#destroy"
+  get 'auth/:provider/callback', to: 'session#createWithFacebook'
 end
 
 #      Prefix Verb   URI Pattern               Controller#Action
