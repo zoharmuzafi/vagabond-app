@@ -25,7 +25,7 @@
           <%= f.label :city_id, "Select Your City" %><br>
           <%= f.collection_select :city_id, City.all, :id, :name, {}, {class: "btn btn-block btn-default dropdown-toggle"} %>
         </div>
-        <% if params[controller] == "edit" %>
+        <% if params[:action] == "edit" %>
         <div class="form-group">
           <%= f.label :Change_your_picture %>
           <%= f.file_field :avatar %>

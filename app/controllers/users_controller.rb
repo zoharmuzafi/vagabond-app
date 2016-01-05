@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
       if @user.update_attributes(user_params)
         redirect_to user_path(@user)
       else
-        flash[:error] = @user.errs.full_messages.join(', ')
+        flash[:error] = @user.errors.full_messages.join(', ')
         redirect_to edit_user_path(@user)
       end
     else
