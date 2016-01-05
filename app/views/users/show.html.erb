@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col xs-12">
+      <div class="border">
+        <div class="scroll">
+          <div class="profile-pic">
+            <img src="default-img" alt="default-img" class="img-responsive">
+          </div>
+        </div>
+        <hr>
+        <h2 class="text-center"><%= @user.name %></h2>
+        <h2>username: <%= @user.username %></h2>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-6 col-xs-12">
+      <a href="#">Link to single post path</a>
+      <p>Post body will go here</p>
+      <p>created some time ago. </p>
+    </div>
+  </div>
+</div>
