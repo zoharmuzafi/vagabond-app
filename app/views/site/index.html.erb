@@ -1,9 +1,8 @@
 <!-- <h1>Site#index</h1>
 <p>Find me in app/views/site/index.html.erb</p> -->
 
-	<%= render "partials/navPartial" %>
+<%= render "partials/navPartial" %>
 <!-- Header version 1 uncoment bellow -->
-
 <div class="wide">
     <div class="col-xs-5 line"><hr></div>
     <div class="col-xs-2 logo">Vagabond Travel</div>
@@ -21,7 +20,7 @@
   <div class="row">
       <div class="col-sm-3 col-md-3">
         <figure class="gallery-item">
-          <img src="http://7-themes.com/data_images/out/78/7039390-san-francisco.jpg" id="sanFrancisco" class="img-responsive" />
+          <img src="<%= asset_path('sf.jpg')%>" class="img-responsive" />
           <figcaption class="img-title">
             <h5>San Francisco</h5>    
           </figcaption>
@@ -29,7 +28,7 @@
       </div>
       <div class="col-sm-3 col-md-3">
         <figure class="gallery-item">
-          <img src="http://www.mrwallpaper.com/wallpapers/eiffel-tower-paris-night.jpg" id="paris" class="img-responsive" />
+          <img src="<%= asset_path('paris.jpg')%>" class="img-responsive" />
           <figcaption class="img-title">
             <h5>Paris</h5>    
           </figcaption>
@@ -37,7 +36,7 @@
       </div>
       <div class="col-sm-3 col-md-3">
         <figure class="gallery-item">
-          <img src="https://www.richmond.ac.uk/wp-content/uploads/2015/09/London.jpg" id="london" class="img-responsive" />
+          <img src="<%= asset_path('london.jpg')%>" class="img-responsive" />
           <figcaption class="img-title">
             <h5>London</h5>    
           </figcaption>
@@ -45,7 +44,7 @@
       </div>
       <div class="col-sm-3 col-md-3">
         <figure class="gallery-item">
-         <img src="http://www.blamethemonkey.com/wp-content/uploads/2011/10/Elia-Locardi-Fort-Lovrijenac-Dubrovniks-Gibraltar-Dubrovnik-Croatia.jpg" id="gibraltar" class="img-responsive" />
+         <img src="<%= asset_path('gibraltar.jpg')%>" class="img-responsive" />
           <figcaption class="img-title">
             <h5>Gibraltar</h5>    
           </figcaption>
