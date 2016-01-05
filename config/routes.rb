@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'site/index'
+
   root to: "site#index"
 
-  resources :comments, only: [:create, :update, :destroy]
-  resources :posts, except: [:index]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index]
-  resources :cities, only: [:show]
+
+  ##nesting the resource here to create the post and comments directly in the city show page
+  
+  resources :cities, only: [:show] do
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create, :update, :destroy]
+    end
+  end
+
+
 
   get '/signup', to: "users#new"
   post '/users', to: "users#create"
