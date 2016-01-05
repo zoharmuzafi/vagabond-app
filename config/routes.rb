@@ -1,94 +1,46 @@
 Rails.application.routes.draw do
-  get 'comments/create'
 
-  get 'comments/update'
+  root to: "site#index"
 
-  get 'comments/destroy'
+  resources :comments, only: [:create, :update, :destroy]
+  resources :posts, except: [:index]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, except: [:index]
+  resources :cities, only: [:show]
 
-  get 'posts/new'
-
-  get 'posts/create'
-
-  get 'posts/show'
-
-  get 'posts/edit'
-
-  get 'posts/update'
-
-  get 'posts/destroy'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/show'
-
-  get 'users/edit'
-
-  get 'users/update'
-
-  get 'users/destroy'
-
-  get 'cities/show'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get '/signup', to: "users#new"
+  post '/users', to: "users#create"
+  get '/login', to: "sessions#new"
+  post '/login', to: "sessions#create"
+  get '/logout', to: "sessions#destroy"
 end
+
+#      Prefix Verb   URI Pattern               Controller#Action
+#        root GET    /                         site#index
+#    comments POST   /comments(.:format)       comments#create
+#     comment PATCH  /comments/:id(.:format)   comments#update
+#             PUT    /comments/:id(.:format)   comments#update
+#             DELETE /comments/:id(.:format)   comments#destroy
+#       posts POST   /posts(.:format)          posts#create
+#    new_post GET    /posts/new(.:format)      posts#new
+#   edit_post GET    /posts/:id/edit(.:format) posts#edit
+#        post GET    /posts/:id(.:format)      posts#show
+#             PATCH  /posts/:id(.:format)      posts#update
+#             PUT    /posts/:id(.:format)      posts#update
+#             DELETE /posts/:id(.:format)      posts#destroy
+#    sessions POST   /sessions(.:format)       sessions#create
+# new_session GET    /sessions/new(.:format)   sessions#new
+#     session DELETE /sessions/:id(.:format)   sessions#destroy
+#       users POST   /users(.:format)          users#create
+#    new_user GET    /users/new(.:format)      users#new
+#   edit_user GET    /users/:id/edit(.:format) users#edit
+#        user GET    /users/:id(.:format)      users#show
+#             PATCH  /users/:id(.:format)      users#update
+#             PUT    /users/:id(.:format)      users#update
+#             DELETE /users/:id(.:format)      users#destroy
+#        city GET    /cities/:id(.:format)     cities#show
+#      signup GET    /signup(.:format)         users#new
+#             POST   /users(.:format)          users#create
+#       login GET    /login(.:format)          sessions#new
+#             POST   /login(.:format)          sessions#create
+#      logout GET    /logout(.:format)         sessions#destroy
