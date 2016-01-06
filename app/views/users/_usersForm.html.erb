@@ -31,6 +31,7 @@
           <%= f.file_field :avatar %>
         </div>
         <% end %>
+        <% if params[:action] == 'new' %>
         <div class="form-group">
           <%= f.label :password %>
           <%= f.password_field :password, class: "form-control", placeholder: "Must be at least 8 characters" %>
@@ -39,6 +40,7 @@
           <%= f.label :password_confirmation, "Password Confirmation" %>
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype your password to confirm" %>
         </div>
+        <% end %>
         <div class="form-group">
           <%= f.submit "Submit", class: "btn btn-block btn-info" %>
         </div>
