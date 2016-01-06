@@ -1,61 +1,46 @@
-  <nav id='nav' class='navbar navbar-default navbar-fixed-top'>
-    <div class='container-fluid'>
-      <div class='navbar-header'>
-        <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-navbar'>
-          <span class='sr-only'>Toggle navigation</span>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-        </button>
-        <%= link_to "VagaBond App", root_path, class: 'navbar-brand page-scroll' %>
-      </div>
-      <div class='navbar-collapse collapse' id='bs-navbar'>
-        <ul class='nav navbar-nav pull-right'>
-          <% if current_user %>
-          <li>
-            <%= link_to 'Profile', user_path(current_user) %>
-          </li>
-          <li>
-            <%= link_to 'Logout', logout_path %>
-          </li>
-          <% else %>
-          <li>
-            <%= link_to 'Sign Up', new_user_path %>
-          </li>
-          <li>
-            <%= link_to 'Login', login_path %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
+
+<nav id='nav' class='navbar navbar-default navbar-fixed-top'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-navbar'>
+        <span class='sr-only'>Toggle navigation</span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </button>
+      <%= link_to "VagaBond App", root_path, class: 'navbar-brand page-scroll' %>
     </div>
-  </nav>
-<% if params[:controller] == 'cities' || params[:controller] == 'posts' %>
-  <nav id='nav' class='navbar navbar-default navbar-fixed-top'>
-    <div class='container-fluid'>
-      <div class='navbar-header'>
-        <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-navbar'>
-          <span class='sr-only'>Toggle navigation</span>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-          <span class='icon-bar'></span>
-        </button>
-        <a class='navbar-brand page-scroll' href='/photos'>VagaBond App</a>
-      </div>
-      <div class='navbar-collapse collapse' id='bs-navbar'>
-        <ul class='nav navbar-nav pull-left'>
-          <li>
-            <%= link_to @city.name, city_path(@city) %>
-          </li>
-        </ul>
+    <div class='navbar-collapse collapse' id='bs-navbar'>
+      <ul class='nav navbar-nav pull-right'>
         <% if params[:controller] == 'cities' && params[:action] == 'show' %>
-        <ul class="nav navbar-nav pull-right">
-          <li>
-            <%= link_to 'New Post', new_city_post_path(@city, @post) %>
-          </li>
-        </ul>
+        <li>
+          <%= link_to 'New Post', new_city_post_path(@city, @post) %>
+        </li>
         <% end %>
-      </div>
+        <% if current_user %>
+        <li>
+          <%= link_to 'Profile', user_path(current_user) %>
+        </li>
+        <li>
+          <%= link_to 'Logout', logout_path %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to 'Sign Up', new_user_path %>
+        </li>
+        <li>
+          <%= link_to 'Login', login_path %>
+        </li>
+        <% end %>
+      </ul>
+      <ul class='nav navbar-nav pull-left'>
+      <% if params[:controller] == 'cities' || params[:controller] == 'posts' %>
+        <li>
+          <%= link_to @city.name, city_path(@city) %>
+        </li>
+      </ul>
+      <% end %>
     </div>
-  </nav>
-<% end %>
+  </div>
+</nav>
+

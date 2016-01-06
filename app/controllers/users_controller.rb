@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
   before_filter :set_user, except: [:new, :create]
-
+  
   def new
     if current_user
       redirect_to user_path(current_user)
@@ -27,7 +26,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    if request.path != user_path(current_user)
+      redirect_to @user, status: :moved_permanently
+    end
   end
 
   def edit
@@ -59,11 +60,10 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :city_id, :avatar)
+      params.require(:user).permit(:name, :username, :email, :password, :password_confirmation, :city_id, :avatar, :slug)
     end
 
     def set_user
-      user_id = params[:id]
-      @user = User.find_by_id(user_id)
+      @user = User.friendly.find(params[:id])
     end
 end
