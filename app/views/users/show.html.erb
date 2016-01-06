@@ -11,7 +11,9 @@
         <h2 class="text-center"><strong>@<%= current_user.username %></strong></h2>
         <hr>
         <h2 class="text-left"><strong>Name:</strong>  <%= current_user.name %></h2>
-        <h2 class="text-left"><strong>City:</strong>  <%= current_user.city.name %></h2>
+        <% if current_user.city %>
+          <h2 class="text-left"><strong>City:</strong>  <%= current_user.city.name %></h2>
+        <% end %>
         <h2 class="text-left"><strong>Date joined:  <%= time_ago_in_words(current_user.created_at) %> ago</h2>
         <% if current_user.id == @user.id %>
           <%= link_to "Edit User", edit_user_path(current_user), class: "btn btn-block btn-warning" %>
