@@ -1,11 +1,11 @@
 <%= render "partials/navPartial" %>
 
-<div class="city-overflow">
-  <%= image_tag @city.header, class: "city-img" %>
+<div class="header-overflow">
+  <%= image_tag @city.header, class: "header-img" %>
 </div>
 
 <div class="container">
-  <% @city.posts.each do |post| %>
+  <% @posts.each do |post| %>
     <div class="row">
       <div class="col-md-2 col-md-offset-3">
       <% if post.user.avatar.url == nil %>
@@ -21,4 +21,8 @@
     </div>
     <br>
   <% end %>
+</div>
+<div class="container text-center">
+  <%= paginate @posts, :theme => 'twitter-bootstrap-3',
+                       :pagination_class => "pagination-sm" %>
 </div>

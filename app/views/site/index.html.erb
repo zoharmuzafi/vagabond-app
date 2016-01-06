@@ -1,87 +1,70 @@
 <%= render "partials/navPartial" %>
-<!-- Header version 1 uncoment bellow -->
+<!-- 
 <div class="wide">
-    <div class="col-xs-5 line"><!-- <hr> --></div>
-    <div class="col-xs-2 logo">VAGABOND</div>
-    <div class="col-xs-5 line"><!-- <hr> --></div>
+  <div class="logo">VAGABOND</div>
 </div>
-
- 
-<!-- image grid Version 1 uncoment below -->
+ -->
+<div class="header-overflow">
+  <%= image_tag 'sky.jpg', class: "header-img" %>
+</div>
 
 <div class="container">
   <div class="text-center">
-    <h1 class="index-txt">DESTINATIONS</h1>
+    <h1 class="julius-font">DESTINATIONS</h1>
   </div>
 
   <div class="row">
-      <div class="col-sm-3 col-md-3">
+    <div class="col-sm-3 col-md-3">
+      <a href="/cities/san-francisco">
         <figure class="gallery-item">
-          <img src="<%= asset_path('sf.jpg')%>" class="img-responsive" />
+          <%= image_tag 'sf.jpg', class: "img-responsive" %>
           <figcaption class="img-title">
             <h5>San Francisco</h5>    
           </figcaption>
         </figure>
-      </div>
-      <div class="col-sm-3 col-md-3">
+      <a>
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <a href="/cities/paris">
         <figure class="gallery-item">
-          <img src="<%= asset_path('paris.jpg')%>" class="img-responsive" />
+          <%= image_tag 'paris.jpg', class: "img-responsive" %>
           <figcaption class="img-title">
             <h5>Paris</h5>    
           </figcaption>
         </figure>
-      </div>
-      <div class="col-sm-3 col-md-3">
+      </a>
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <a href="/cities/london">
         <figure class="gallery-item">
-          <img src="<%= asset_path('london.jpg')%>" class="img-responsive" />
+          <%= image_tag 'london.jpg', class: "img-responsive" %>
           <figcaption class="img-title">
             <h5>London</h5>    
           </figcaption>
         </figure>
-      </div>
-      <div class="col-sm-3 col-md-3">
+      </a>
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <a href="/cities/gibraltar">
         <figure class="gallery-item">
-         <img src="<%= asset_path('gibraltar.jpg')%>" class="img-responsive" />
+          <%= image_tag 'gibraltar.jpg', class: "img-responsive" %>
           <figcaption class="img-title">
             <h5>Gibraltar</h5>    
           </figcaption>
         </figure>
-      </div>
-  </div>
-
-
-<!-- Place Google Map -->
-<div class="row">
-    <div class="col-md-4">
-        <iframe class="top" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="600" height="400" src="https://www.google.com/maps/d/embed?mid=zeTvroQGldWE.kKfvCttjqL1c">
-          <div>
-            <small><a href="http://embedgooglemaps.com">embedgooglemaps.com</a></small></div><div><small><a href="http://buyproxies.io/">buyproxies.io</a></small>
-          </div>
-        </iframe>
+      </a>
     </div>
   </div>
 
+  <!-- Place Google Map -->
+  <div class="row">
+    <div class="col-md-12">
+      <iframe class="top" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%" height="600" src="https://www.google.com/maps/d/embed?mid=zeTvroQGldWE.kKfvCttjqL1c">
+        <div>
+          <small><a href="http://embedgooglemaps.com">embedgooglemaps.com</a></small></div><div><small><a href="http://buyproxies.io/">buyproxies.io</a></small>
+        </div>
+      </iframe>
+    </div>
+  </div>
 </div><!-- /.container -->
 
-
-
-        
- 
-
-
-
-
-<!-- image grid Version 2 uncoment below -->
-
-<!-- <div class="container"> -->
-<!-- city images -->
-<!-- 	<div class="any" data-grid="images"><div style="display: inline-block; margin-bottom: 10px; margin-right: 0px; vertical-align: bottom;">
-                <a><img data-action="zoom" data-width="1050" data-height="700" src="http://7-themes.com/data_images/out/78/7039390-san-francisco.jpg" style="max-width: 350px; max-height: 200px;"></a>
-              </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 10px; vertical-align: bottom;">
-                <img data-action="zoom" data-width="640" data-height="640" src="http://www.mrwallpaper.com/wallpapers/eiffel-tower-paris-night.jpg" style="max-width: 350px; max-height: 200px;">
-              </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 0px; vertical-align: bottom;">
-                <img data-action="zoom" data-width="640" data-height="640" src="https://www.richmond.ac.uk/wp-content/uploads/2015/09/London.jpg" style="max-width: 350px; max-height: 200px;">
-              </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 0px; vertical-align: bottom;">
-                <img data-action="zoom" data-width="1048" data-height="700" src="http://www.blamethemonkey.com/wp-content/uploads/2011/10/Elia-Locardi-Fort-Lovrijenac-Dubrovniks-Gibraltar-Dubrovnik-Croatia.jpg" style="max-width: 350px; max-height: 200px;">
-              </div></div>
-</div>

@@ -31,6 +31,9 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'friendly_id', '~> 5.1.0'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

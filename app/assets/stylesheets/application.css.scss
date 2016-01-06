@@ -14,4 +14,13 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'styles';
-@import 'font-awesome'
+@import 'font-awesome';
+
+.alert-messages {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 7000;
+  padding: 20px;
+}

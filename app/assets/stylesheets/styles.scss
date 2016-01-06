@@ -5,38 +5,20 @@
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:800);
 
-body,html {
-  height: 100%;
-  background-color: #EDEFED;
-}
 
 body {
+  height: 100%;
+  background-color: #EDEFED;
   margin-top: 50px
 }
 
-.wide {
-  width:100%;
-  height:100%;
-  max-height: 320px;
-  height: calc(100% - 1px);
-  background-image:url('http://www.honeytiesblog.com/wp-content/uploads/2015/07/Traveler.jpg');
-  background-size: cover;
-}
-
-.city-img {
+/* Styling for header images on landing page and city pages */
+.header-img {
   width:100%;
   max-height: 100%;
 }
 
-.city-overflow {
-  height: 300px;
-  overflow-y: hidden; 
-}
-
-.wide img {
-  width:100%;
-}
-
+/* Styling for logo on the landing page */
 .logo {
   font-family:"Julius Sans One";
   color:#fff;
@@ -47,15 +29,19 @@ body {
   text-align:center;
 }
 
-.index-txt {
+h1 {
   font-family: "Julius Sans One";
-  color:#ff5050;
-  font-weight:500;
-  font-size:20pt;
-  padding:25px;
-  text-align:center;
+  font-weight: bold;
+  font-size: 25pt;
+  padding: 25px;
+  text-align: center;
 }
 
+.julius-font {
+  color: #ff5050;
+}
+
+/* Styling for hover effect on landing page */
 .gallery {
   width: 25em;
   margin: 2em auto;
@@ -73,11 +59,11 @@ body {
 }
 
 .gallery-item img {
-    width: 100%;
+  width: 100%;
 }
 
 .gallery-item:hover .img-title {
-    background: rgba(255,255,255, 0.5); 
+  background: rgba(255,255,255, 0.5); 
 }
 
 .img-title {
@@ -101,10 +87,7 @@ body {
   text-align: center;
 }
 
-select, option {
-  font: 20px;
-}
-
+/* Styling for Facebook login/signup button */
 .btn-f {
   background-color: #3B5998;
   color: white;
@@ -113,3 +96,9 @@ select, option {
 .fa {
   font-size: 120% !important;
 }
+
+/* Add styling to the cards */
+.well {
+  margin-top: 1%;
+}
+
