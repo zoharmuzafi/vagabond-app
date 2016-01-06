@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  # before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show]
   before_action :set_city
   before_action :authorize, except: [:show]
 
@@ -28,7 +28,6 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @post = Post.find(1)
   end
 
   def edit
