@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-sm-6 col xs-12">
+    <div class="col-md-4 col-sm-6 col xs-12 well profile-border">
       <div class="border">
         <div class="scroll">
           <div class="profile-pic">
@@ -28,6 +28,7 @@
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12">
       <div class="well">
+        <%= @post.each do %>
         <a href="#">Link to single post path</a>
         <p>Post body will go here</p>
         <p>link_to number of comments will go here</p>

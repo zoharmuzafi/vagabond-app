@@ -45,8 +45,10 @@
           <%= f.submit "Submit", class: "btn btn-block btn-info" %>
         </div>
       <% end %>
+      <% if params[:action] == 'new' %>
       <div class="form-group">
         <%= button_to "/auth/facebook", class:"btn btn-block btn-f" do %><i class="fa fa-facebook-official"></i>&nbsp&nbsp Connect with Facebook<% end %>
       </div>
+      <% end %>
     </div>
   </div>
