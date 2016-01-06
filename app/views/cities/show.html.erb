@@ -5,7 +5,7 @@
 </div>
 
 <div class="container">
-  <% @city.posts.each do |post| %>
+  <% @posts.each do |post| %>
     <div class="row">
       <div class="col-md-2 col-md-offset-3">
       <% if post.user.avatar.url == nil %>
@@ -21,4 +21,7 @@
     </div>
     <br>
   <% end %>
+</div>
+<div class="container text-center">
+  <%= paginate @posts %>
 </div>

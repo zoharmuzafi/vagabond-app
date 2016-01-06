@@ -31,6 +31,7 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'friendly_id', '~> 5.1.0'
+gem 'kaminari'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
