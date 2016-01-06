@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'site/index'
+  get "site/index"
 
   root to: "site#index"
 
@@ -10,15 +10,20 @@ Rails.application.routes.draw do
   ##nesting the resource here to create the post and comments directly in the city show page
   
   resources :cities, only: [:show] do
-    resources :posts, except: [:index] 
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
-  get '/signup', to: "users#new"
-  post '/users', to: "users#create"
-  get '/login', to: "sessions#new"
-  post '/login', to: "sessions#create"
-  get '/logout', to: "sessions#destroy"
-  get 'auth/:provider/callback', to: 'sessions#createWithFacebook'
+ 
+  # delete "/destroy_comments", to: "comments#destroy"
+
+  get "/signup", to: "users#new"
+  post "/users", to: "users#create"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  get "/logout", to: "sessions#destroy"
+  get "auth/:provider/callback", to: "sessions#createWithFacebook"
 end
 
 #      Prefix Verb   URI Pattern               Controller#Action

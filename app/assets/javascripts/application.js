@@ -15,3 +15,11 @@
 //= require bootstrap.min
 //= require bootstrap-sprockets
 //= require main
+
+$(function () {
+  console.log("meow")
+
+  //flash message will fadeout
+  $('.alert').delay(3000).fadeOut('slow')
+
+})
