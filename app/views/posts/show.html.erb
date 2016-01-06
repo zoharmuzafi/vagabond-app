@@ -13,7 +13,7 @@
 			<h2><%= @post.title %></h2>
 			<h3><%= @post.body %></h3>
 
-			<%= form_for :comment, :url => "/post_comments" do |f| %>
+			<%= form_for :comment, :url => city_post_comments_path(@city, @post) do |f| %>
 					<div class="row">
 						<div class="col-md-9">
 							<div class="form-group">

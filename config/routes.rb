@@ -10,10 +10,13 @@ Rails.application.routes.draw do
   ##nesting the resource here to create the post and comments directly in the city show page
   
   resources :cities, only: [:show] do
-    resources :posts, except: [:index] 
+    resources :posts, except: [:index] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
-  
-  post "/post_comments", to: "comments#create"
+
+ 
+  # delete "/destroy_comments", to: "comments#destroy"
 
   get "/signup", to: "users#new"
   post "/users", to: "users#create"
