@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: [:show]
+  # before_action :set_post, only: [:show]
   before_action :set_city
   before_action :authorize, except: [:show]
 
@@ -27,6 +27,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @post = Post.find(1)
   end
 
   def edit
@@ -72,6 +74,7 @@ private
   def set_city
     @city = City.find(params[:city_id])
   end
+
   def post_params
     params.require(:post).permit(:title, :body, :city_id, :user_id)
   end
