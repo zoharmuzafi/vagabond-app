@@ -83,11 +83,14 @@ body,html {
     /*transition: all 0.5s ease;*/
 }
 
-    .img-title h5 {
+.img-title h5 {
         position: absolute;
         color: #fff;
         top: 33%;
         width: 100%;
         text-align: center;
-    }
+}
+select, option{
+  font: 20px;
+}
 

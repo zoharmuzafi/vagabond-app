@@ -16,11 +16,15 @@ class User < ActiveRecord::Base
 	end
 
 	def self.create_user_from_omniauth(auth)
+	
 		create(
-			provider: auth["provider"],
+			  provider: auth["provider"],
 		    uid: auth["uid"],
-		    name: auth["info"]["name"]
-		    email: auth["info"]["email"]
+		    name: auth["info"]["name"],
+		    email: auth["info"]["email"],
+		    password: "12345678",
+		    username: "Please Edit Your Profile To Add a Username",
+		    avatar: auth['info']['image'] 
 		)
   	end
 
