@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'site/index'
+  get "site/index"
 
   root to: "site#index"
 
@@ -12,13 +12,15 @@ Rails.application.routes.draw do
   resources :cities, only: [:show] do
     resources :posts, except: [:index] 
   end
+  
+  post "/post_comments", to: "comments#create"
 
-  get '/signup', to: "users#new"
-  post '/users', to: "users#create"
-  get '/login', to: "sessions#new"
-  post '/login', to: "sessions#create"
-  get '/logout', to: "sessions#destroy"
-  get 'auth/:provider/callback', to: 'sessions#createWithFacebook'
+  get "/signup", to: "users#new"
+  post "/users", to: "users#create"
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  get "/logout", to: "sessions#destroy"
+  get "auth/:provider/callback", to: "sessions#createWithFacebook"
 end
 
 #      Prefix Verb   URI Pattern               Controller#Action
