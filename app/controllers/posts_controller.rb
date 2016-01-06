@@ -71,7 +71,7 @@ private
   end
 
   def set_city
-    @city = City.find(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
   end
 
   def post_params
