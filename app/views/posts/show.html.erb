@@ -1,8 +1,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-2 col-md-offset-3">
-			<img src=<%= @post.user.avatar %> alt="User Avatar" class="img-responsive img-circle">
-
+    <% if current_user.avatar.url == nil %>
+      <%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
+    <% else %>
+      <%= image_tag current_user.avatar.url, class: "img-responsive img-circle avatar", alt: "default-img" %>
+    <% end %>
 		</div>
 		<div class="col-md-4">
 			<h1 class="text-center">Post</h1>
