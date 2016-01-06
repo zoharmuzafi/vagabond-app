@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
 		    uid: auth["uid"],
 		    name: auth["info"]["name"],
 		    email: auth["info"]["email"],
-		    password: "12345678",
-		    username: "Please Edit Your Profile To Add a Username",
+		    password: FFaker::Internet.password,
+		    username: "#{auth['info']['email']}",
 		    avatar: auth['info']['image'] 
 		)
   	end

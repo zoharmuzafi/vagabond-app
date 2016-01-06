@@ -9,6 +9,45 @@
 			<hr>
 			<h2><%= @post.title %></h2>
 			<h3><%= @post.body %></h3>
+
+			<%= form_for :comment, :url => "/cities/:city_id/posts/:post_id/comments" do |f| %>
+					<div class="row">
+						<div class="col-md-9">
+							<div class="form-group">
+								<%= f.text_field :line, class: "form-control", placeholder: "comment..." %>
+								<% @post_id = @post.id %>
+								<% @user_id = current_user.id %>
+								<% @city_id = @post.city_id %>
+								<%= f.hidden_field :post_id, :value => @post_id %>
+								<%= f.hidden_field :city_id, :value => @post_id %>
+								<%= f.hidden_field :user_id, :value => @user_id %>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group text-center">
+								<%= f.submit "Comment", class: "btn btn-primary btn-block" %>
+							</div>
+						</div>	
+					</div>
+				<% end %>
+				<% if @post.comments.length>0 %>
+					<p>Comments:</p>
+				<% end %>
+				<% @post.comments.each do |comment| %>
+					<div class="row commentRow">
+						<div class="col-md-12 commentLine">
+							<div class="comment">
+								<p><%= comment.line %></p>	
+							</div>
+							<% if current_user.id == comment.user_id %>
+								<div class="text-right commentDelete btnDelete">
+									<%= button_to "Delete", "/cities/#{Post.find(comment.post_id).city_id}/posts/#{comment.post_id}/comments/#{comment.id}" , method: :delete, class:"btn btn-primary CommentDeleteBtn"%>
+								</div>
+							<% end %>
+						</div>	
+					</div>
+				<% end %>
+
 		</div>
 	</div>
 </div>

@@ -7,9 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "auth/facebook" do %><p>FACEBOOK</p><% end %>
 	<%= render "partials/navPartial" %>
-	
   <% flash.each do |name, msg| %>
     <div class="container-fluid text-center alert alert-danger">
       <%= msg %>
