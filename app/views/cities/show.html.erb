@@ -1,2 +1,20 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<%= render "partials/navPartial" %>
+
+<div class="city-overflow">
+  <%= image_tag @city.header, class: "city-img" %>
+</div>
+
+<div class="container">
+  <% @city.posts.each do |post| %>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-3">
+        <img src="<%= post.user.avatar %>" alt="default image" class="img-responsive img-circle avatar">
+      </div>
+      <div class="col-md-4">
+        <h3><%= post.title %></h2>
+        <h4><%= post.body %></h3>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</div>
