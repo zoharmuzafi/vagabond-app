@@ -39,9 +39,6 @@
           <%= f.label :password_confirmation, "Password Confirmation" %>
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype your password to confirm" %>
         </div>
-        <% if params[:action] == "new" %>
-        <%= f.hidden_field :avatar, :value => "https://s3.amazonaws.com/FringeBucket/default-user.png" %>
-        <% end %>
         <div class="form-group">
           <%= f.submit "Submit", class: "btn btn-block btn-info" %>
         </div>
