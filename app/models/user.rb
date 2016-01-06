@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :username, use: [:slugged, :history]
+
 	has_secure_password
 
 	validates :email, presence: true, uniqueness: true
