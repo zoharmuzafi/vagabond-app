@@ -42,24 +42,10 @@ h1 {
 }
 
 /* Styling for hover effect on landing page */
-.gallery {
-  width: 25em;
-  margin: 2em auto;
-}
-
 .gallery-item {
   height: auto;
-  float: left;
-  margin-bottom: 2em;
-  position: relative;
-}
-
-.gallery-item:first-child {
-  margin-right: 2.762430939%;
-}
-
-.gallery-item img {
-  width: 100%;
+/*  margin-bottom: 2em;
+*/  position: relative;
 }
 
 .gallery-item:hover .img-title {
@@ -73,10 +59,8 @@ h1 {
   height: 100%;
   width: 100%;
   text-align: center;
-  /*opacity: 0;*/
-  display: none; /* comment this out for CSS hover */
+  display: none;
   background-color: #333;
-  /*transition: all 0.5s ease;*/
 }
 
 .img-title h5 {
@@ -99,6 +83,7 @@ h1 {
 
 /* Add styling to the cards */
 .well {
-  margin-top: 1%;
+  margin: 1% 1% 0 1%;
+  margin-bottom: 0;
 }
 

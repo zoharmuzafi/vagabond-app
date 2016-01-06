@@ -6,20 +6,21 @@
 
 <div class="container">
   <% @posts.each do |post| %>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-3">
-      <% if post.user.avatar.url == nil %>
-        <%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
-      <% else %>
-        <%= image_tag post.user.avatar.url, class: "img-responsive img-circle avatar", alt: "default-img" %>
-      <% end %>
-      </div>
-      <div class="col-md-4">
-        <h3><%= post.title %></h2>
-        <h4><%= post.body %></h3>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row well">
+        <div class="col-md-3">
+        <% if post.user.avatar.url == nil %>
+          <%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
+        <% else %>
+          <%= image_tag post.user.avatar.url(:thumb), class: "img-responsive img-circle avatar", alt: "default-img" %>
+        <% end %>
+        </div>
+        <div class="col-md-9">
+          <h4><%= post.title %></h4>
+          <p><%= post.body %></p>
+        </div>
       </div>
     </div>
-    <br>
   <% end %>
 </div>
 <div class="container text-center">

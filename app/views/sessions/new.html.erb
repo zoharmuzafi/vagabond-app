@@ -1,23 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-md-offset-4 well">
-      <h1 class="text-center">Login</h1>
-      <hr>
-      <%= form_for :user, url: login_path do |f| %>
+    <div class="col-md-4 col-md-offset-4">
+      <div class="well">
+        <h1 class="text-center">Login</h1>
+        <hr>
+        <%= form_for :user, url: login_path do |f| %>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "form-control", placeholder: "Your email", autofocus: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control", placeholder: "Your password" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Log In", class: "btn btn-block btn-info" %>
+          </div>
+        <% end %>
         <div class="form-group">
-          <%= f.label :email %>
-          <%= f.text_field :email, class: "form-control", placeholder: "Your email", autofocus: true %>
+          <%= button_to "/auth/facebook", class:"btn btn-block btn-f" do %><i class="fa fa-facebook-official"></i>&nbsp&nbsp Connect with Facebook<% end %>
         </div>
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control", placeholder: "Your password" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "Log In", class: "btn btn-block btn-info" %>
-        </div>
-      <% end %>
-      <div class="form-group">
-        <%= button_to "/auth/facebook", class:"btn btn-block btn-f" do %><i class="fa fa-facebook-official"></i>&nbsp&nbsp Connect with Facebook<% end %>
       </div>
     </div>
   </div>
