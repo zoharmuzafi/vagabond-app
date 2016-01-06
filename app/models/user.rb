@@ -19,15 +19,14 @@ class User < ActiveRecord::Base
 	end
 
 	def self.create_user_from_omniauth(auth)
-	
 		create(
 			  provider: auth["provider"],
 		    uid: auth["uid"],
 		    name: auth["info"]["name"],
 		    email: auth["info"]["email"],
 		    password: FFaker::Internet.password,
-		    username: "#{auth['info']['email']}",
-		    avatar: auth['info']['image'] 
+		    username: "#{(auth["info"]["name"]).delete(' ')}#{FFaker::PhoneNumberAU.home_work_phone_prefix}",
+		    avatar: auth["info"]["image"]
 		)
   	end
 
