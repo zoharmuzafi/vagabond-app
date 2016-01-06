@@ -13,8 +13,6 @@ Rails.application.routes.draw do
     resources :posts, except: [:index] 
   end
 
-
-
   get '/signup', to: "users#new"
   post '/users', to: "users#create"
   get '/login', to: "sessions#new"
