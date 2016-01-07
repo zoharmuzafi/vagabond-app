@@ -5,8 +5,10 @@
 @import url(https://fonts.googleapis.com/css?family=Julius+Sans+One);
 @import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:800);
 
+/* Airbnb color: #ff5a5f;*/
+
 a {
-  color: #ff5a5f;
+  color: #4cb0bb;
 }
 
 body {
@@ -86,7 +88,11 @@ h1 {
 
 /* Add styling to the cards */
 .well {
-  margin: 1% 1% 0 1%;
+  margin: 5% 1% 0 1%;
   margin-bottom: 0;
+}
+
+.extra-padding {
+  padding: 5%;
 }
 
