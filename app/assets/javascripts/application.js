@@ -20,6 +20,6 @@ $(function () {
   console.log("meow")
 
   //flash message will fadeout
-  $('.alert').delay(3000).fadeOut('slow')
+  $('.alert').delay(1200).fadeOut('slow')
 
 })
