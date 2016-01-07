@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     # end
     @posts = @user.posts.all.page(params[:page]).per(4)
     @city = @user.city
+    @cities = City.all
   end
 
   def edit
