@@ -25,32 +25,32 @@ Rails.application.routes.draw do
   get "auth/:provider/callback", to: "sessions#createWithFacebook"
 end
 
-#      Prefix Verb   URI Pattern               Controller#Action
-#        root GET    /                         site#index
-#    comments POST   /comments(.:format)       comments#create
-#     comment PATCH  /comments/:id(.:format)   comments#update
-#             PUT    /comments/:id(.:format)   comments#update
-#             DELETE /comments/:id(.:format)   comments#destroy
-#       posts POST   /posts(.:format)          posts#create
-#    new_post GET    /posts/new(.:format)      posts#new
-#   edit_post GET    /posts/:id/edit(.:format) posts#edit
-#        post GET    /posts/:id(.:format)      posts#show
-#             PATCH  /posts/:id(.:format)      posts#update
-#             PUT    /posts/:id(.:format)      posts#update
-#             DELETE /posts/:id(.:format)      posts#destroy
-#    sessions POST   /sessions(.:format)       sessions#create
-# new_session GET    /sessions/new(.:format)   sessions#new
-#     session DELETE /sessions/:id(.:format)   sessions#destroy
-#       users POST   /users(.:format)          users#create
-#    new_user GET    /users/new(.:format)      users#new
-#   edit_user GET    /users/:id/edit(.:format) users#edit
-#        user GET    /users/:id(.:format)      users#show
-#             PATCH  /users/:id(.:format)      users#update
-#             PUT    /users/:id(.:format)      users#update
-#             DELETE /users/:id(.:format)      users#destroy
-#        city GET    /cities/:id(.:format)     cities#show
-#      signup GET    /signup(.:format)         users#new
-#             POST   /users(.:format)          users#create
-#       login GET    /login(.:format)          sessions#new
-#             POST   /login(.:format)          sessions#create
-#      logout GET    /logout(.:format)         sessions#destroy
+#             Prefix Verb   URI Pattern                                            Controller#Action
+#         site_index GET    /site/index(.:format)                                  site#index
+#               root GET    /                                                      site#index
+#           sessions POST   /sessions(.:format)                                    sessions#create
+#        new_session GET    /sessions/new(.:format)                                sessions#new
+#            session DELETE /sessions/:id(.:format)                                sessions#destroy
+#              users POST   /users(.:format)                                       users#create
+#           new_user GET    /users/new(.:format)                                   users#new
+#          edit_user GET    /users/:id/edit(.:format)                              users#edit
+#               user GET    /users/:id(.:format)                                   users#show
+#                    PATCH  /users/:id(.:format)                                   users#update
+#                    PUT    /users/:id(.:format)                                   users#update
+#                    DELETE /users/:id(.:format)                                   users#destroy
+# city_post_comments POST   /cities/:city_id/posts/:post_id/comments(.:format)     comments#create
+#  city_post_comment DELETE /cities/:city_id/posts/:post_id/comments/:id(.:format) comments#destroy
+#         city_posts POST   /cities/:city_id/posts(.:format)                       posts#create
+#      new_city_post GET    /cities/:city_id/posts/new(.:format)                   posts#new
+#     edit_city_post GET    /cities/:city_id/posts/:id/edit(.:format)              posts#edit
+#          city_post GET    /cities/:city_id/posts/:id(.:format)                   posts#show
+#                    PATCH  /cities/:city_id/posts/:id(.:format)                   posts#update
+#                    PUT    /cities/:city_id/posts/:id(.:format)                   posts#update
+#                    DELETE /cities/:city_id/posts/:id(.:format)                   posts#destroy
+#               city GET    /cities/:id(.:format)                                  cities#show
+#             signup GET    /signup(.:format)                                      users#new
+#                    POST   /users(.:format)                                       users#create
+#              login GET    /login(.:format)                                       sessions#new
+#                    POST   /login(.:format)                                       sessions#create
+#             logout GET    /logout(.:format)                                      sessions#destroy
+#                    GET    /auth/:provider/callback(.:format)                     sessions#createWithFacebook
