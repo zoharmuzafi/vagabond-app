@@ -95,7 +95,7 @@ h1 {
 /* Styling for Facebook login/signup button */
 .btn-f {
   background-color: #3B5998;
-  color: white;
+  color: white !important;
 }
 
 .fa {
@@ -124,7 +124,10 @@ h1 {
 }
 
 .siteLogoNav{
- font-size: 150% 
+ font-size: 150%;
+}
+.fa-globe-nav{
+   color: #4cb0bb;
 }
 
 .header-overflow{ 
@@ -162,4 +165,8 @@ h1 {
 
 .alert {
   margin-top: -50px;
+
+.noPostP{
+  color: #4cb0bb;
+  font-size: 20px;
 }
