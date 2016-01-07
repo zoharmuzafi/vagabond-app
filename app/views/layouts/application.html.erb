@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <link rel="icon" type="image/jpg" href="http://fa2png.io/r/font-awesome/globe/?color=909090&margin=16&size=16">
+  <%= favicon_link_tag asset_path('favicon.png'), type:'image/png' %>
 </head>
 <body>
 	<%= render "partials/navPartial" %>

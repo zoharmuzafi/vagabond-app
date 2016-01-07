@@ -28,6 +28,16 @@
       </div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12">
+      <% if @posts.length == 0 %>
+        <div class="row">
+          <div class="well">
+            <p>You Havn't post anything yet :(</p>
+            <p>Choose city to write your new post:</p>
+          </div>
+            
+        </div>
+      <% end %>
+
       <% @posts.each do |post |%>
         <div class="row">
           <div class="well">
