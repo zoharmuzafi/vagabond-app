@@ -1,29 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4 col-sm-6 col xs-12 profile-border">
+    <div class="col-md-4 col-sm-6 col xs-12">
       <div class="well">
-        <div class="scroll">
-          <div class="profile-pic">
-          <% if @user.avatar.url == nil %>
-            <%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
-          <% else %>
-            <%= image_tag @user.avatar.url(:thumb), class: "img-responsive img-circle avatar", alt: "default-img" %>
-          <% end %>
+        <div class="extra-padding">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <% if @user.avatar.url == nil %>
+                <%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
+              <% else %>
+                <%= image_tag @user.avatar.url(:thumb), class: "img-responsive img-circle avatar", alt: "default-img" %>
+              <% end %>
+            </div>
+            <hr>
+            <h3 class="text-center"><strong>@<%= @user.username %></strong></h2>
+            <hr>
+            <h3 class="text-left"><strong>Name:</strong>  <%= @user.name %></h2>
+            <% if @user.city %>
+              <h3 class="text-left"><strong>City:</strong>  <%= link_to @user.city.name, city_path(@city) %></h2>
+            <% end %>
+            <hr>
+            <h4 class="text-left"><strong>Date joined:</strong>  <%= time_ago_in_words(@user.created_at) %> ago</h2>
+            <% if current_user.id == @user.id %>
+              <%= link_to "Edit Account", edit_user_path(current_user), class: "btn btn-block btn-default" %>
+            <% end %>
           </div>
         </div>
-        <hr>
-        <h3 class="text-center"><strong>@<%= @user.username %></strong></h2>
-        <hr>
-        <h3 class="text-left"><strong>Name:</strong>  <%= @user.name %></h2>
-        <% if @user.city %>
-          <h3 class="text-left"><strong>City:</strong>  <%= @user.city.name %></h2>
-        <% end %>
-        <h3 class="text-left"><strong>Date joined:</strong>  <%= time_ago_in_words(@user.created_at) %> ago</h2>
-        <% if current_user.id == @user.id %>
-          <%= link_to "Edit Account", edit_user_path(current_user), class: "btn btn-block btn-default" %>
-          <br>
-          <%= link_to "Delete User", user_path(current_user), method: :delete, class: "btn btn-block btn-danger" %>
-        <% end %>
       </div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12">
@@ -43,10 +44,10 @@
           </div>
         </div>
       <% end %>
+      <div class="text-center">
+        <%= paginate @posts, :theme => 'twitter-bootstrap-3',
+                             :pagination_class => "pagination-sm" %>
+      </div>
     </div>
   </div>
-</div>
-<div class="container text-center">
-  <%= paginate @posts, :theme => 'twitter-bootstrap-3',
-                       :pagination_class => "pagination-sm" %>
 </div>
