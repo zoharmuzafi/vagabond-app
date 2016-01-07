@@ -16,8 +16,17 @@
         <% end %>
         </div>
         <div class="col-md-9">
-          <h4><%= post.title %></h4>
-          <p><%= post.body %></p>
+          <div class="row">
+            <h4><%= post.title %></h4>
+          </div>
+          <div class="row">
+            <p><%= post.body %></p>
+          </div>
+          <div class="row">
+            <%= link_to city_post_path(@city, post), class: "pull-left" do %>
+              <%= post.comments.size %> <i class="fa fa-comments-o"></i>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
