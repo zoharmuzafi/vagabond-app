@@ -28,7 +28,19 @@
       </div>
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12">
-      <% @posts.each do |post|%>
+      <% if @posts.length == 0 %>
+        <div class="row">
+          <div class="well">
+            <p>You Havn't post anything yet :(</p>
+            <p>Choose city to add your new post:</p>
+            <%= form_tag  "/selectcity", :method => :get do  %>
+                <%= collection_select :city, :city_id,  City.all, :id, :name %>
+                <%= submit_tag "Go!" %>
+            <% end %>
+          </div>    
+        </div>
+      <% end %>
+      <% @posts.each do |post |%>
         <div class="row">
           <div class="col-md-12">
             <div class="well">

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
   get "auth/:provider/callback", to: "sessions#createWithFacebook"
+  get "/selectcity", to: "cities#selectcity"
 end
 
 #             Prefix Verb   URI Pattern                                            Controller#Action
