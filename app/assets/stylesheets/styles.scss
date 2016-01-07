@@ -8,11 +8,17 @@
 /* Airbnb color: #ff5a5f;*/
 
 a {
-  color: #4cb0bb;
+  color: #4cb0bb !important;
   text-decoration: none; 
   -webkit-transition: all .35s;
   -moz-transition: all .35s;
   transition: all .35s;
+}
+
+.pagination > .active > a {
+  background-color: #4cb0bb;
+  border-color: #4cb0bb;
+  color: white !important;
 }
 
 //a tag hover effect
