@@ -22,7 +22,7 @@ a {
 // a tag hover effect
 a:hover,
 a:focus {
-  color: #4aa0aa;
+  color: #4aa0aa !important;
   outline: 0;
   text-decoration: none; 
 }
@@ -170,4 +170,14 @@ h1 {
 .noPostP{
   color: #4cb0bb;
   font-size: 20px;
+}
+
+//btn hover smooth transition
+.btn-info.button-effect {
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s; 
+}
+.btn-info.button-effect:hover {
+  background-color: #2ea8da; 
 }
