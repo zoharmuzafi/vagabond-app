@@ -84,7 +84,7 @@ h1 {
   background-color: #333;
 }
 
-.img-title h5 {
+.img-title h5, .img-title h4 {
   position: absolute;
   color: #fff;
   top: 33%;
@@ -167,7 +167,7 @@ h1 {
   margin-top: -50px;
 }
 
-.noPostP{
+.no-post {
   color: #4cb0bb;
   font-size: 20px;
 }
@@ -180,4 +180,8 @@ h1 {
 }
 .btn-info.button-effect:hover {
   background-color: #2ea8da; 
+}
+
+.btn-delete-user {
+  color: white !important;
 }

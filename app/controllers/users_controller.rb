@@ -29,8 +29,9 @@ class UsersController < ApplicationController
     # if request.path != user_path(current_user)
     #   redirect_to @user, status: :moved_permanently
     # end
-    @posts = Post.all.page(params[:page]).per(4)
+    @posts = @user.posts.all.page(params[:page]).per(4)
     @city = @user.city
+    @cities = City.all
   end
 
   def edit

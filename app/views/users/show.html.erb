@@ -11,15 +11,16 @@
                 <%= image_tag @user.avatar.url(:thumb), class: "img-responsive img-circle avatar", alt: "default-img" %>
               <% end %>
             </div>
+          </div>
+          <div class="row">
+            <h3 class="text-center"><strong>@<%= @user.username %></strong></h3>
             <hr>
-            <h3 class="text-center"><strong>@<%= @user.username %></strong></h2>
-            <hr>
-            <h3 class="text-left"><strong>Name:</strong>  <%= @user.name %></h2>
+            <h3 class="text-left"><strong>Name:</strong>  <%= @user.name %></h3>
             <% if @user.city %>
               <h3 class="text-left"><strong>City:</strong>  <%= link_to @user.city.name, city_path(@city) %></h2>
             <% end %>
             <hr>
-            <h4 class="text-left"><strong>Date joined:</strong>  <%= time_ago_in_words(@user.created_at) %> ago</h2>
+            <h4 class="text-left"><strong>Date joined:</strong>  <%= time_ago_in_words(@user.created_at) %> ago</h3>
             <% if current_user && current_user.id == @user.id %>
               <%= link_to "Edit Account", edit_user_path(current_user), class: "btn btn-block btn-default" %>
             <% end %>
@@ -32,25 +33,25 @@
         <div class="row">
           <div class="col-md-12">
             <div class="well">
+              <p class="no-post">You have no posts.</p>
+              <p>Feel free to navigate around the site and read about the experiences of other travelers.  You can comment on the posts of other travelers or write about your own experiences.  Choose a city below to add your own post.</p>
               <div class="row">
-                <div class="col-md-12">
-                  <p class="noPostP">You Havn't post anything yet :(</p>
-                  <p>Choose city to add your new post:</p>
-                </div>  
+                <% @cities.each do |city| %>
+                  <div class="col-md-6">
+                    <%= link_to new_city_post_path(city.id) do %>
+                      <figure class="gallery-item">
+                        <%= image_tag asset_path(city.image), class: "img-responsive index-img" %>
+                        <figcaption class="img-title">
+                          <h4><%= city.name %></h4>
+                        </figcaption>
+                      </figure>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <%= form_tag  "/selectcity", :method => :get do  %>
-                      <%= collection_select :city, :city_id,  City.all, :id, :name,  {prompt: "Select a city"}, {class: "form-control"} %>
-                </div>
-                <div class="col-md-2">
-                      <%= submit_tag "Go!", class: "btn btn-block btn-blue" %>
-                       <% end %>
-                </div>
-              </div>
-          </div>    
+            </div>    
+          </div>
         </div>
-      </div>
       <% end %>
       <% @posts.each do |post |%>
         <div class="row">

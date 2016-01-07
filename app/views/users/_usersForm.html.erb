@@ -51,7 +51,7 @@
         </div>
         <% end %>
         <% if params[:action] == "edit" %>
-          <%= link_to "Delete User", user_path(current_user), method: :delete, class: "btn btn-block btn-danger" %>
+          <%= link_to "Delete User", user_path(current_user), method: :delete, class: "btn btn-block btn-danger btn-delete-user" %>
         <% end %>
       </div>
     </div>
