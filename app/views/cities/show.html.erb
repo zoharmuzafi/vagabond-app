@@ -9,10 +9,15 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="row well">
         <div class="col-md-3">
+
         <% if post.user.avatar.url == nil %>
+        <a href="<%= user_path(post.user) %>">
           <%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
+        </a>
         <% else %>
+        <a href="<%= user_path(post.user) %>"> 
           <%= image_tag post.user.avatar.url(:thumb), class: "img-responsive img-circle avatar", alt: "default-img" %>
+        </a>  
         <% end %>
         </div>
         <div class="col-md-9">
