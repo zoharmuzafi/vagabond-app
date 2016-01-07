@@ -48,14 +48,12 @@
 									<p class="small">&nbsp;&nbsp;posted by <%= link_to comment.user.name, user_path(comment.user) %> <%= time_ago_in_words(comment.created_at) %> ago</p>	
 								</div>
 								<div class="col-md-2">
-									<% if current_user %>
-										<% if current_user.id == comment.user_id %>
-											<div class="text-right commentDelete btnDelete">
-												<%= link_to "/cities/#{Post.find(comment.post_id).city_id}/posts/#{comment.post_id}/comments/#{comment.id}", method: :delete do %>
-													<i class="fa fa-trash-o"></i>
-												<% end %>
-											</div>
-										<% end %>
+									<% if current_user && current_user.id == comment.user_id %>
+										<div class="text-right commentDelete btnDelete">
+											<%= link_to "/cities/#{Post.find(comment.post_id).city_id}/posts/#{comment.post_id}/comments/#{comment.id}", method: :delete do %>
+												<i class="fa fa-trash-o"></i>
+											<% end %>
+										</div>
 									<% end %>
 								</div>	
 							</div>
