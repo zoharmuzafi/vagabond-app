@@ -1,4 +1,3 @@
-
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
       <div class="well">
@@ -27,20 +26,20 @@
             <%= f.collection_select :city_id, City.all, :id, :name, {:include_blank => 'Select one'}, {class: "dropdown-toggle form-control"} %>
           </div>
           <% if params[:action] == "edit" %>
-          <div class="form-group">
-            <%= f.label :Change_your_picture %>
-            <%= f.file_field :avatar %>
-          </div>
+            <div class="form-group">
+              <%= f.label :Change_your_picture %>
+              <%= f.file_field :avatar %>
+            </div>
           <% end %>
           <% if params[:action] == 'new' %>
-          <div class="form-group">
-            <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control", placeholder: "Must be at least 8 characters" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password_confirmation, "Password Confirmation" %>
-            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype your password to confirm" %>
-          </div>
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password, class: "form-control", placeholder: "Must be at least 8 characters" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation, "Password Confirmation" %>
+              <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype your password to confirm" %>
+            </div>
           <% end %>
           <div class="form-group">
             <%= f.submit "Submit", class: "btn btn-block btn-info" %>
@@ -50,6 +49,9 @@
         <div class="form-group">
           <%= button_to "/auth/facebook", class:"btn btn-block btn-f" do %><i class="fa fa-facebook-official"></i>&nbsp&nbsp Connect with Facebook<% end %>
         </div>
+        <% end %>
+        <% if params[:action] == "edit" %>
+          <%= link_to "Delete User", user_path(current_user), method: :delete, class: "btn btn-block btn-danger" %>
         <% end %>
       </div>
     </div>
