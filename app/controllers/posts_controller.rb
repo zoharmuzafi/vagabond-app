@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
-
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :edit, :update]
   before_action :set_city
   before_action :authorize, except: [:show]
 
@@ -40,7 +39,7 @@ class PostsController < ApplicationController
   def update
 
     if current_user == @post.user
-      if post.update_attributes(post_params)
+      if @post.update_attributes(post_params)
         redirect_to city_post_path(@city, @post)
         flash[:notice] = 'Post successfully updated'
       else
