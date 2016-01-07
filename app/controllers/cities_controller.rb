@@ -5,8 +5,12 @@ class CitiesController < ApplicationController
   end
 
   def selectcity
-  	city = params.require(:city).permit(:city_id)["city_id"]
-  	find_city= City.find(city)
-  	redirect_to new_city_post_path(find_city)
+  	@city = City.find(city_params[:id]
+  	redirect_to new_city_post_path(@city)
+  end
+private
+
+  def city_params
+    params.require(:city).permit(:id)
   end
 end

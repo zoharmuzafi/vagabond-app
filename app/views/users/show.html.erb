@@ -12,9 +12,9 @@
               <% end %>
             </div>
             <hr>
-            <h3 class="text-center"><strong>@<%= @user.username %></strong></h2>
+            <h3 class="text-center username-margin"><strong>@<%= @user.username %></strong></h3>
             <hr>
-            <h3 class="text-left"><strong>Name:</strong>  <%= @user.name %></h2>
+            <h3 class="text-left"><strong>Name:</strong>  <%= @user.name %></h3>
             <% if @user.city %>
               <h3 class="text-left"><strong>City:</strong>  <%= link_to @user.city.name, city_path(@city) %></h2>
             <% end %>
@@ -41,11 +41,11 @@
               <div class="row">
                 <div class="col-md-4">
                   <%= form_tag  "/selectcity", :method => :get do  %>
-                      <%= collection_select :city, :city_id,  City.all, :id, :name,  {prompt: "Select a city"}, {class: "form-control"} %>
+                    <%= collection_select :city, :id,  City.all, :id, :name,  {prompt: "Select a city"}, {class: "form-control"} %>
                 </div>
                 <div class="col-md-2">
-                      <%= submit_tag "Go!", class: "btn btn-block btn-blue" %>
-                       <% end %>
+                  <%= submit_tag "Go!", class: "btn btn-block btn-blue" %>
+                   <% end %>
                 </div>
               </div>
           </div>    
