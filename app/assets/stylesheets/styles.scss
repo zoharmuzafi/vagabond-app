@@ -9,8 +9,20 @@
 
 a {
   color: #4cb0bb;
+  text-decoration: none; 
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
 }
 
+//a tag hover effect
+a:hover,
+a:focus {
+  color: #4aa0aa;
+  outline: 0;
+  text-decoration: none; 
+}
+//end of hover effect
 body {
   height: 100%;
   background-color: #EDEFED;
@@ -105,6 +117,33 @@ h1 {
 .well {
   margin-top: 30px;
   margin-bottom: 0;
+}
+
+.siteLogoNav{
+ font-size: 150% 
+}
+
+.header-overflow{ 
+   position: relative; 
+   width: 100%;
+}
+
+.title { 
+   font-family: "Julius Sans One";
+   position: absolute; 
+   top: 30%; 
+   left: 0; 
+   width: 100%; 
+   font-size: 70px;
+   color: white;
+}
+@media screen and (max-width: 800px) {
+   .title { 
+
+   top: 25%; 
+   font-size: 30px;
+
+}
 }
 
 .extra-padding {
