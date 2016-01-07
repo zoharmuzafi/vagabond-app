@@ -1,56 +1,64 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-2 col-md-offset-3">
-    <% if current_user.avatar.url == nil %>
-      <%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
-    <% else %>
-      <%= image_tag current_user.avatar.url(:thumb), class: "img-responsive img-circle avatar", alt: "default-img" %>
-    <% end %>
-		</div>
-		<div class="col-md-4">
-			<h1 class="text-center">Post</h1>
-			<hr>
-			<h2><%= @post.title %></h2>
-			<h3><%= @post.body %></h3>
-
-			<%= form_for :comment, :url => city_post_comments_path(@city, @post) do |f| %>
-					<div class="row">
-						<div class="col-md-9">
-							<div class="form-group">
-								<%= f.text_field :line, class: "form-control", placeholder: "comment..." %>
-								<% @post_id = @post.id %>
-								<% @user_id = current_user.id %>
-								<% @city_id = @post.city_id %>
-								<%= f.hidden_field :post_id, :value => @post_id %>
-								<%= f.hidden_field :city_id, :value => @city_id %>
-								<%= f.hidden_field :user_id, :value => @user_id %>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="form-group text-center">
-								<%= f.submit "Comment", class: "btn btn-primary btn-block" %>
-							</div>
-						</div>	
-					</div>
-				<% end %>
-				<% if @post.comments.length>0 %>
-					<p>Comments:</p>
-				<% end %>
-				<% @post.comments.each do |comment| %>
-					<div class="row commentRow">
-						<div class="col-md-12 commentLine">
-							<div class="comment">
-								<p><%= comment.line %></p>	
-							</div>
-							<% if current_user.id == comment.user_id %>
-								<div class="text-right commentDelete btnDelete">
-									<%= button_to "Delete", "/cities/#{Post.find(comment.post_id).city_id}/posts/#{comment.post_id}/comments/#{comment.id}" , method: :delete, class:"btn btn-primary CommentDeleteBtn"%>
-								</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="well">
+				<div class="row">
+					<div class="col-md-3">
+						<%= link_to user_path(@post.user) do %>
+							<% if current_user.avatar.url == nil %>
+								<%= image_tag "default_image.png", class: "img-responsive img-circle avatar" %>
+							<% else %>
+								<%= image_tag current_user.avatar.url(:thumb), class: "img-responsive img-circle avatar", alt: "default-img" %>
 							<% end %>
-						</div>	
+						<% end %>
 					</div>
-				<% end %>
-				
+					<div class="col-md-9">
+						<h4><%= @post.title %></h4>
+						<p><%= @post.body %></p>
+						<p class="small">&nbsp;&nbsp;posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+						<%= form_for :comment, :url => city_post_comments_path(@city, @post) do |f| %>
+							<div class="row">
+								<div class="col-md-9">
+									<div class="form-group">
+										<%= f.text_field :line, class: "form-control", placeholder: "comment..." %>
+										<% @post_id = @post.id %>
+										<% @user_id = current_user.id %>
+										<% @city_id = @post.city_id %>
+										<%= f.hidden_field :post_id, :value => @post_id %>
+										<%= f.hidden_field :city_id, :value => @city_id %>
+										<%= f.hidden_field :user_id, :value => @user_id %>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group text-center">
+										<%= f.submit "Comment", class: "btn btn-block btn-blue" %>
+									</div>
+								</div>	
+							</div>
+						<% end %>
+						<% if @post.comments.length>0 %>
+							<p>Comments:</p>
+						<% end %>
+						<% @post.comments.each do |comment| %>
+							<div class="row">
+								<div class="col-md-10">
+									<p><%= comment.line %></p>	
+									<p class="small">&nbsp;&nbsp;posted by <%= link_to comment.user.name, user_path(comment.user) %> <%= time_ago_in_words(comment.created_at) %> ago</p>	
+								</div>
+								<div class="col-md-2">
+									<% if current_user.id == comment.user_id %>
+										<div class="text-right commentDelete btnDelete">
+											<%= link_to "/cities/#{Post.find(comment.post_id).city_id}/posts/#{comment.post_id}/comments/#{comment.id}", method: :delete do %>
+												<i class="fa fa-trash-o"></i>
+											<% end %>
+										</div>
+									<% end %>
+								</div>	
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
