@@ -171,3 +171,13 @@ h1 {
   color: #4cb0bb;
   font-size: 20px;
 }
+
+//btn hover smooth transition
+.btn-info.button-effect {
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s; 
+}
+.btn-info.button-effect:hover {
+  background-color: #2ea8da; 
+}
