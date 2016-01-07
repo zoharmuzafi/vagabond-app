@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-9">
           <div class="row">
-            <h4><%= post.title %></h4>
+            <h4><%= link_to post.title, city_post_path(@city,post) %></h4>
           </div>
           <div class="row">
             <p><%= post.body %></p>
