@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     comment.user_id = current_user.id
-    comment.line = "#{current_user.name}: #{comment.line}"
     post_id = params.require(:comment).permit(:post_id)["post_id"]
     city_id = params.require(:comment).permit(:city_id)["city_id"]
   

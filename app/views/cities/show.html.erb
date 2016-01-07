@@ -1,5 +1,3 @@
-<%= render "partials/navPartial" %>
-
 <div class="header-overflow">
   <%= image_tag @city.header, class: "header-img" %>
 </div>
@@ -21,13 +19,9 @@
         <% end %>
         </div>
         <div class="col-md-9">
-          <div class="row">
-            <h4><%= link_to post.title, city_post_path(@city, post) %></h4>
-          </div>
-          <div class="row">
-            <p><%= post.body %></p>
-          </div>
-          <div class="row">
+          <h4><%= link_to post.title, city_post_path(@city, post) %></h4>
+          <p><%= post.body %></p>
+          <p class="small">&nbsp;&nbsp;posted <%= time_ago_in_words(post.created_at) %> ago</p>
             <%= link_to city_post_path(@city, post), class: "pull-left" do %>
               <%= post.comments.size %> <i class="fa fa-comments-o"></i>
             <% end %>

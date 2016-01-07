@@ -98,9 +98,24 @@ h1 {
   font-size: 120% !important;
 }
 
+.btn-blue {
+  background-color: #4cb0bb;
+  border-color: #4cb0bb;
+  color: white;
+  -webkit-transition: all .35s;
+  -moz-transition: all .35s;
+  transition: all .35s;
+}
+
+.btn-blue:hover {
+  background-color: #4aa0aa !important;
+  border-color: #4aa0aa;
+  color: white;
+}
+
 /* Add styling to the cards */
 .well {
-  margin: 5% 1% 0 1%;
+  margin-top: 30px;
   margin-bottom: 0;
 }
 
@@ -135,4 +150,6 @@ h1 {
   padding: 5%;
 }
 
-
+.small {
+  color: #7a7d84;
+}
